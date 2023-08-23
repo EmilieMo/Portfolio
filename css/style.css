@@ -29,7 +29,7 @@ h1, h2, h3, h4, h5, h6{
     line-height: 1;
 }
 
-<<<<<<< HEAD
+
 h1,
 .h1 {
     font-size: 3.1rem;
@@ -46,12 +46,10 @@ h3,
     font-size: 2.1rem;
 }
 
-a{
-    /* color: #333; */
-=======
+
 a{
     color: #333;
->>>>>>> af5e570495928faf2b7dc59a9042be8ef693ed85
+
     text-decoration: none;
 }
 
@@ -134,7 +132,6 @@ section{
 
 .section-header{
     text-align: center;
-<<<<<<< HEAD
 }
 
 @media screen and (min-width:750px) {
@@ -146,13 +143,11 @@ section{
 .header{
     background: #FFFFFF;
     border-bottom: 1px solid #EEE;
-=======
 }
 
 .header{
     background-color: white;
     border-bottom: 1px solid black;
->>>>>>> af5e570495928faf2b7dc59a9042be8ef693ed85
     position: sticky;
     top: 0;
     z-index: 1;
@@ -324,10 +319,6 @@ section{
         padding-right: 3rem;
     }
 }
-<<<<<<< HEAD
-
-=======
->>>>>>> af5e570495928faf2b7dc59a9042be8ef693ed85
 /* ________________________SERVICE____________________________ */
 .services{
     background: #F5F5F5;
@@ -373,11 +364,7 @@ section{
         margin-right: 2rem;
     }
 }
-<<<<<<< HEAD
-/* ____________________Skills________________________ */
-=======
 
->>>>>>> af5e570495928faf2b7dc59a9042be8ef693ed85
 .skills h4,
 .skills p {
     margin: 0 0 0.3rem 0;
@@ -399,11 +386,7 @@ section{
     background: #5b6c78;
     padding: 1rem;
 }
-<<<<<<< HEAD
-/* _________________________Portfolio____________________________________ */
-=======
 
->>>>>>> af5e570495928faf2b7dc59a9042be8ef693ed85
 .portfolio {
     background: #F5F5F5;
 }
@@ -422,8 +405,6 @@ section{
     overflow: hidden;
     transition: all .4s ease;
 }
-
-<<<<<<< HEAD
 
 .portfolio-filters .grid__item {
     max-width: 50%;
@@ -664,9 +645,8 @@ footer .socials a:hover {
 .sidebar {
     grid-area: sidebar;
 }
-=======
+
 .portfolio-filters .grid__item {
     max-width: 50%;
     margin-bottom: 0;
->>>>>>> af5e570495928faf2b7dc59a9042be8ef693ed85
 }
