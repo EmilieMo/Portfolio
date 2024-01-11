@@ -133,14 +133,14 @@ fin de la théorie
                 //  function du thème
 /* Menu Mobile */
 function menuMobil() {
-        const btn = document.querySelector('.burger');
-        const header = document.querySelector('.header');
+        const btn = document.querySelector('.burger'); // ciblé le bouton 
+        const header = document.querySelector('.header'); // ciblé le header
         const links = document.querySelectorAll('.navbar a'); // récup tout les liens de la navbar
         
         btn.addEventListener('click', () => {
-                header.classList.toggle('show-nav'); //le toggle permet d'ouvrir et fermer
+                header.classList.toggle('show-nav'); //le toggle permet d'ouvrir et fermer (alterner entre 2 actions)
         });
-        links.forEach(link => {
+        links.forEach(link => {  
                 link.addEventListener('click', () => {
                         header.classList.remove('show-nav'); //permet d'aller a chaque liste et fermer le menu
                 });     
@@ -150,19 +150,59 @@ menuMobil();  // on appelle la fonction
 
 /* Portfolio */
 function tabsFilters() {
-        const tabs = document.querySelectorAll('portfolio-filters a');
-        const projets = document.querySelectorAll('portfolio .card');
+        const tabs = document.querySelectorAll('.portfolio-filters a');
+        const projets = document.querySelectorAll('.portfolio .card');
 
-        const showProjets = () => {
+        const resetActiveLinks = () => {
+                tabs.forEach(elem => {
+                        elem.classList.remove('active');
+                });
+        }
+
+        const showProjets = (elem) => {
+                console.log(elem);
                 projets.forEach(projet => {
-                        console.log(projet);
+                        let filter = projet.getAttribute('data-category');
+
+                        if (elem === 'all') {
+                                projet.parentNode.classList.remove('hide');
+                                return
+                        }
+// ne sera pas pris en compte avec le return
+
+                /*if(filter !== elem){
+                        projet.parentNode.classList.add('hide');
+                }else{
+                        projet.parentNode.classList.remove('hide');
+                }*/
+                        // console.log(projet);
+//option opérateur ternaire : pour faire la condition sans le if et le else du dessus => pour une syntaxe plus courte et plus propre 
+        filter !== elem ? projet.parentNode.classList.add('hide') : projet.parentNode.classList.remove('hide');
+
                 })
         }
         tabs.forEach(elem => {
                 elem.addEventListener('click', (event) => {
                         event.preventDefault();
-                })
+                        let filter = elem.getAttribute('data-filter');
+                        // console.log(filter);
+                        showProjets(filter)
+                        resetActiveLinks();
+                        elem.classList.add('active'); // change la couleur au click
+                });
         })
-        showProjets();
 }
 tabsFilters();
+
+function showProjetDetails() {
+        const links = document.querySelectorAll('.card__link');
+        const modals = document.querySelectorAll('.modal');
+
+        links.forEach(elem => {
+                elem.addEventListener('click', (event) => {
+                        event.preventDefault();
+                        document.querySelector(`[id=${elem.dataset.id}]`).classList.add('show');
+                });
+        });
+}
+showProjetDetails();

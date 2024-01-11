@@ -257,12 +257,12 @@ section{
         width: 0;
     }
     .burger .bar::before, .burger .bar::after{
-        transition: all .3s ease-out;
+        transition: all .3s ease-out;       /* croix pour le burger */
     }
-    .show-nav .burger .bar::before{
+    .show-nav .burger .bar::before{    /* croix pour le burger */
         transform: rotate(-45deg);
     }
-    .show-nav .burger .bar::after{
+    .show-nav .burger .bar::after{      /* croix pour le burger */
         transform: rotate(45deg);
     }
 }
