@@ -197,6 +197,13 @@ tabsFilters();
 function showProjetDetails() {
         const links = document.querySelectorAll('.card__link');
         const modals = document.querySelectorAll('.modal');
+        const btns = document.querySelectorAll('.modal__close');
+
+        const hideModals = () => {
+                modals.forEach(modal => {
+                        modal.classList.remove('show');
+                        });
+        }
 
         links.forEach(elem => {
                 elem.addEventListener('click', (event) => {
@@ -204,5 +211,49 @@ function showProjetDetails() {
                         document.querySelector(`[id=${elem.dataset.id}]`).classList.add('show');
                 });
         });
+
+        btns.forEach(btn => {
+                btn.addEventListener('click', (event) => {
+                        hideModals();
+                });
+        });
 }
 showProjetDetails();
+
+// Effets
+
+const observerIntersectionAnimation = () => {
+        const sections = document.querySelectorAll('section');
+        const skills = document.querySelectorAll('.skill .bar');
+
+        sections.forEach((section, index) => {
+                if (index === 0) return;
+                section.style.opacity = "0";
+                section.style.transition = "all 1.6";
+                });
+
+let sectionObserver = new IntersectionObserver(function (entries, observer) {
+        entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                        let elem = entry.target;
+                        elem.style.opacity = "1";
+                }
+        })      
+});
+sections.forEach(section => {
+        sectionObserver.observe(section)
+        });
+}
+
+let skillObserver = new IntersectionObserver(function (entries, observer) {
+        entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                        let elem = entry.target;
+                }
+        })      
+});
+skills.forEach(skill => {
+        skillObserver.observe(skill)
+        });
+
+observerIntersectionAnimation();
