@@ -224,12 +224,17 @@ showProjetDetails();
 
 const observerIntersectionAnimation = () => {
         const sections = document.querySelectorAll('section');
-        const skills = document.querySelectorAll('.skill .bar');
+        const skills = document.querySelectorAll('.skills .bar');
 
         sections.forEach((section, index) => {
                 if (index === 0) return;
                 section.style.opacity = "0";
-                section.style.transition = "all 1.6";
+                section.style.transition = "all 1.6s";
+                });
+
+        skills.forEach((elem, index) => {
+                elem.style.width = "0";
+                elem.style.transition = "all 1.6s";
                 });
 
 let sectionObserver = new IntersectionObserver(function (entries, observer) {
@@ -238,22 +243,25 @@ let sectionObserver = new IntersectionObserver(function (entries, observer) {
                         let elem = entry.target;
                         elem.style.opacity = "1";
                 }
-        })      
+        });      
 });
 sections.forEach(section => {
-        sectionObserver.observe(section)
+        sectionObserver.observe(section);
         });
-}
 
-let skillObserver = new IntersectionObserver(function (entries, observer) {
+
+let skillsObserver = new IntersectionObserver(function (entries, observer) {
         entries.forEach(entry => {
                 if (entry.isIntersecting) {
                         let elem = entry.target;
+                        elem.style.width = elem.dataset.width + '%'; // la barre en pourcentage ex data-width"90"
                 }
-        })      
+        });      
 });
+
 skills.forEach(skill => {
-        skillObserver.observe(skill)
+        skillsObserver.observe(skill);
         });
+}
 
 observerIntersectionAnimation();
