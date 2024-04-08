@@ -627,8 +627,8 @@ footer .grid{
 }
 
 footer .socials{
+    display: flex;
     justify-content: center;
-    text-align: center;
 }
 
 footer .socials li {
